@@ -1,0 +1,135 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-20T04:20:18.140Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 9,
+    "implemented": 5,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Create a backend data model for messages that includes sender principal, recipient principal, message text content, timestamp, and read status",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Implement backend functions to send messages between matched users, retrieve conversation history between two users, and mark messages as read",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Create a backend data model for user photo posts that includes the photo blob data, caption text, timestamp, and owner principal",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Implement backend functions to create photo posts with captions, retrieve all posts from a specific user, and retrieve a feed of posts from matched users",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Build a messaging interface page where users can view their list of conversations with matched profiles and select one to open the chat view",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/MessagesPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/MessagesPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Create a chat view component that displays conversation history with a matched user and provides an input field to send new messages",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ChatView.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ChatView.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Build a photo feed page displaying posts from matched users in a grid or list layout, showing the photo, caption, poster's name, and timestamp",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/FeedPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/FeedPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Create a photo posting component with image upload functionality and caption input that allows users to create and publish new photo posts",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CreatePostForm.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CreatePostForm.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Add navigation links in the Layout component header for accessing the messages page and photo feed page",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/pages/MessagesPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/pages/MessagesPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/ChatView.tsx",
+    "frontend/src/components/CreatePostForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/FeedPage.tsx",
+    "frontend/src/pages/MessagesPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

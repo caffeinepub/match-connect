@@ -1,0 +1,20 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup including new routes for messages (/messages, /messages/:partnerId) and feed (/feed), with profile setup modal logic.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including profile management, match decisions, messaging (conversation, send, mark as read), and photo posts (create, feed, user posts) with proper state invalidation.",
+  "frontend/src/components/Layout.tsx": "Application layout wrapper with responsive header navigation including new Messages and Feed links, mobile menu, authentication controls, and footer with branding.",
+  "frontend/src/pages/LandingPage.tsx": "Landing page with hero section featuring background image, feature highlights, and call-to-action buttons that adapt based on authentication state.",
+  "frontend/src/pages/BrowsePage.tsx": "Browse page displaying one profile card at a time, filtering out current user and already matched profiles, with renamed variable to avoid conflict between user profile and displayed profile.",
+  "frontend/src/pages/MatchesPage.tsx": "Matches page showing grid of profiles the user has liked, with empty state encouraging users to start browsing.",
+  "frontend/src/pages/ProfilePage.tsx": "Profile management page allowing users to create or edit their profile information with authentication guard.",
+  "frontend/src/components/ProfileForm.tsx": "Reusable profile form component with fields for name, age, bio, and interests with tag management, now with proper type handling for age validation converting string to number before comparison.",
+  "frontend/src/components/ProfileCard.tsx": "Interactive profile card component with swipe-like animations, displaying profile information and like/pass action buttons with generated icons.",
+  "frontend/src/components/MatchCard.tsx": "Compact match card component for displaying matched user profiles in a grid layout with profile preview and interests.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that wraps ProfileForm for first-time profile setup, shown only when user is authenticated but has no profile.",
+  "frontend/src/index.css": "Global styles with romantic OKLCH color system featuring warm rose, pink, and coral tones for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color palette (rose, pink, coral), Inter font family, and custom design tokens.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient, InternetIdentity, ThemeProvider, and Toaster setup.",
+  "frontend/src/pages/MessagesPage.tsx": "Messages page displaying conversation list with matched profiles, showing avatar, name, last message preview, and unread count indicators with navigation to individual chats.",
+  "frontend/src/components/ChatView.tsx": "Chat component displaying conversation history with partner profile header, chronological message display (sent/received), real-time message input, and auto-scroll to latest messages.",
+  "frontend/src/pages/FeedPage.tsx": "Feed page displaying photo posts from matched users in reverse chronological order with post cards showing photo, caption, poster info, and create post dialog.",
+  "frontend/src/components/CreatePostForm.tsx": "Photo posting form component with image upload, preview, caption input (500 char limit), upload progress tracking, and success/error notifications."
+}

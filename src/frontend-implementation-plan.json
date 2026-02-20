@@ -1,0 +1,128 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add messaging and photo posting features",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Build a messaging interface page displaying conversation list with matched profiles",
+      "acceptanceCriteria": [
+        "Conversation list shows avatar, name, and last message preview for each matched user",
+        "Unread message indicators are visible",
+        "Clicking a conversation opens the chat view with that user",
+        "Empty state is shown when no conversations exist"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MessagesPage.tsx",
+          "operation": "create",
+          "description": "Create messaging page that fetches user matches and displays conversation list. For each matched user, fetch conversation data using getConversation backend capability. Display each conversation with user avatar, display name, last message preview, and unread count indicator. Clicking a conversation navigates to chat view with that user's principal. Show empty state when no conversations exist with prompt to browse for matches."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useGetConversation hook that calls actor.getConversation(partner) to fetch conversation history with sent messages, received messages, and unread count. Add useMarkAsRead mutation hook that calls actor.markAsRead(partner) to mark messages as read. Both hooks use TanStack Query with proper error handling and loading states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Create chat view component displaying conversation history with message input",
+      "acceptanceCriteria": [
+        "Messages are displayed in chronological order with visual distinction between sent and received messages",
+        "Message input field allows typing and sending text messages",
+        "Messages update in real-time when new messages are sent or received",
+        "Chat view shows the matched user's profile picture and name at the top"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatView.tsx",
+          "operation": "create",
+          "description": "Create chat component that accepts partner principal as prop. Fetch partner profile using getUserProfile backend capability and conversation data using useGetConversation hook. Display header with partner's avatar and display name. Render messages in chronological order (combine sent and received, sort by timestamp) with sent messages right-aligned and received messages left-aligned. Include message input form that calls sendMessage backend capability with recipient principal, content, and current timestamp. After sending, invalidate conversation query to refresh messages. Call markAsRead when component mounts or receives new messages."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useSendMessage mutation hook that calls actor.sendMessage(recipient, content, timestamp) to send new messages. After successful send, invalidate the conversation query for the recipient to trigger refetch of updated conversation history."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Build photo feed page displaying posts from matched users in grid layout",
+      "acceptanceCriteria": [
+        "Feed displays posts from all matched users in reverse chronological order",
+        "Each post shows the photo, caption, poster's profile picture, name, and timestamp",
+        "Loading states are shown while fetching posts",
+        "Empty state is shown when no posts are available"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeedPage.tsx",
+          "operation": "create",
+          "description": "Create feed page that fetches user's matches using getUserMatchesQuery backend capability, extracts matched user principals (where both users liked each other), then calls getFeed backend capability with the matched principals array and limit parameter. Display posts in reverse chronological grid layout. Each post shows photo using ExternalBlob.getDirectURL(), caption, timestamp formatted as relative time, and poster information fetched via getUserProfile. Show loading skeleton during fetch. Display empty state when no posts exist with prompt to browse for matches or create first post."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useGetFeed hook that calls actor.getFeed(matchedUsers, limit) to fetch photo posts from matched users. Add useGetUserPosts hook that calls actor.getUserPosts(user) for viewing a specific user's posts. Both hooks handle ExternalBlob type and return loading/error states appropriately."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Create photo posting component with image upload and caption input",
+      "acceptanceCriteria": [
+        "Users can select and preview an image from their device",
+        "Caption input field allows optional text with character limit",
+        "Image is converted to blob format before upload",
+        "Success and error notifications are shown after posting",
+        "Form resets after successful post creation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CreatePostForm.tsx",
+          "operation": "create",
+          "description": "Create form component with file input for image selection and textarea for caption (max 500 characters). On file selection, read file as ArrayBuffer and create preview URL using URL.createObjectURL. Convert file bytes to ExternalBlob using ExternalBlob.fromBytes() with upload progress tracking via withUploadProgress(). On submit, call createPhotoPost backend capability with ExternalBlob, caption text, and current timestamp (BigInt(Date.now() * 1000000)). Show upload progress indicator. Display toast notifications for success/error. Reset form and preview after successful post. Invalidate feed query to show new post immediately."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useCreatePhotoPost mutation hook that calls actor.createPhotoPost(photo, caption, timestamp). Handle ExternalBlob type correctly. After successful creation, invalidate feed and user posts queries. Return loading state and upload progress for UI feedback."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Add navigation links for messages and feed pages in Layout header",
+      "acceptanceCriteria": [
+        "Messages link is visible in the header navigation when authenticated",
+        "Feed link is visible in the header navigation when authenticated",
+        "Links highlight when their corresponding page is active",
+        "Mobile menu includes both new navigation items"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add Messages and Feed navigation links to authenticated nav section (alongside Browse, Matches, Profile links). Use Link component from Tanstack Router with to='/messages' and to='/feed' props. Apply activeProps for highlighting active routes. Include both links in mobile menu navigation as well. Position Messages link between Matches and Profile, and Feed link after Profile in the navigation order."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register /messages and /feed routes in router configuration. Messages route renders MessagesPage component. Feed route renders FeedPage component. Both routes require authentication and redirect to landing page if user is not authenticated, consistent with existing protected routes."
+        },
+        {
+          "path": "frontend/src/pages/MessagesPage.tsx",
+          "operation": "modify",
+          "description": "Add routing support to navigate to chat view when conversation is clicked. Use router navigation to /messages/:partnerId route passing partner principal as URL parameter. Extract partner principal from URL params in ChatView component."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register /messages/:partnerId route that renders ChatView component with partner principal extracted from route params."
+        }
+      ]
+    }
+  ]
+}

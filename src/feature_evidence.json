@@ -1,0 +1,111 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-messaging-interface-page-where-users-can-view-their-list-of-conversations-with-matched-profiles-and-select-one-to-open-the-chat-view",
+      "featureTitle": "Build a messaging interface page where users can view their list of conversations with matched profiles and select one to open the chat view",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/MessagesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-chat-view-component-that-displays-conversation-history-with-a-matched-user-and-provides-an-input-field-to-send-new-messages",
+      "featureTitle": "Create a chat view component that displays conversation history with a matched user and provides an input field to send new messages",
+      "files": [
+        "frontend/src/components/ChatView.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-photo-feed-page-displaying-posts-from-matched-users-in-a-grid-or-list-layout-showing-the-photo-caption-poster-s-name-and-timestamp",
+      "featureTitle": "Build a photo feed page displaying posts from matched users in a grid or list layout, showing the photo, caption, poster's name, and timestamp",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/FeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-photo-posting-component-with-image-upload-functionality-and-caption-input-that-allows-users-to-create-and-publish-new-photo-posts",
+      "featureTitle": "Create a photo posting component with image upload functionality and caption input that allows users to create and publish new photo posts",
+      "files": [
+        "frontend/src/components/CreatePostForm.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-navigation-links-in-the-layout-component-header-for-accessing-the-messages-page-and-photo-feed-page",
+      "featureTitle": "Add navigation links in the Layout component header for accessing the messages page and photo feed page",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/pages/MessagesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

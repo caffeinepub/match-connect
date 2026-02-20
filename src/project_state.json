@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Building a dating app",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-a-profile-creation-and-editing-form-where-users-can-input-their-name-age-bio-interests-as-tags-and-upload-a-profile-photo",
+      "title": "Build a profile creation and editing form where users can input their name, age, bio, interests (as tags), and upload a profile photo",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-card-based-browsing-interface-displaying-one-profile-at-a-time-with-photo-name-age-bio-and-interests",
+      "title": "Create a card-based browsing interface displaying one profile at a time with photo, name, age, bio, and interests",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-swipe-or-button-based-like-pass-interaction-allowing-users-to-express-interest-or-skip-profiles",
+      "title": "Implement swipe or button-based like/pass interaction allowing users to express interest or skip profiles",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-matches-view-showing-all-mutual-matches-with-profile-previews",
+      "title": "Build a matches view showing all mutual matches with profile previews",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-modern-romantic-visual-theme-with-warm-colors-elegant-typography-and-smooth-animations-that-create-an-inviting-dating-app-experience",
+      "title": "Design a modern, romantic visual theme with warm colors, elegant typography, and smooth animations that create an inviting dating app experience",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-messaging-interface-page-where-users-can-view-their-list-of-conversations-with-matched-profiles-and-select-one-to-open-the-chat-view",
+      "title": "Build a messaging interface page where users can view their list of conversations with matched profiles and select one to open the chat view",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-chat-view-component-that-displays-conversation-history-with-a-matched-user-and-provides-an-input-field-to-send-new-messages",
+      "title": "Create a chat view component that displays conversation history with a matched user and provides an input field to send new messages",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-photo-feed-page-displaying-posts-from-matched-users-in-a-grid-or-list-layout-showing-the-photo-caption-poster-s-name-and-timestamp",
+      "title": "Build a photo feed page displaying posts from matched users in a grid or list layout, showing the photo, caption, poster's name, and timestamp",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-photo-posting-component-with-image-upload-functionality-and-caption-input-that-allows-users-to-create-and-publish-new-photo-posts",
+      "title": "Create a photo posting component with image upload functionality and caption input that allows users to create and publish new photo posts",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-navigation-links-in-the-layout-component-header-for-accessing-the-messages-page-and-photo-feed-page",
+      "title": "Add navigation links in the Layout component header for accessing the messages page and photo feed page",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create dating app foundation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a backend data model for user profiles including fields for name, age, bio, interests, and profile photo URL",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement backend functions to create, read, update, and retrieve user profiles",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a backend matching algorithm that suggests compatible profiles based on shared interests",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement backend like/pass functionality where users can express interest or skip profiles",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add messaging functionality for users to communicate with their matches",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add photo posting feature where users can share photos",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create a backend data model for messages that includes sender principal, recipient principal, message text content, timestamp, and read status",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement backend functions to send messages between matched users, retrieve conversation history between two users, and mark messages as read",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Create a backend data model for user photo posts that includes the photo blob data, caption text, timestamp, and owner principal",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement backend functions to create photo posts with captions, retrieve all posts from a specific user, and retrieve a feed of posts from matched users",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Match Connect",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

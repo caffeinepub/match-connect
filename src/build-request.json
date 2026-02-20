@@ -1,0 +1,193 @@
+{
+  "kind": "build_request",
+  "title": "Add messaging and photo posting features",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Create a backend data model for messages that includes sender principal, recipient principal, message text content, timestamp, and read status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "add the a messaging"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Message type includes sender, recipient, content, timestamp, and read status fields",
+        "Messages are stored persistently in stable storage",
+        "Only sender and recipient can access a message"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement backend functions to send messages between matched users, retrieve conversation history between two users, and mark messages as read",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "how the users can talk to its ather"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can only send messages to profiles they have mutually matched with",
+        "Conversation history returns messages in chronological order",
+        "Messages can be marked as read by the recipient",
+        "Unauthorized users cannot access conversations they are not part of"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Create a backend data model for user photo posts that includes the photo blob data, caption text, timestamp, and owner principal",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "users can post there photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Photo post type includes blob data, caption, timestamp, and owner fields",
+        "Posts are stored persistently in stable storage",
+        "Each post has a unique identifier"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Implement backend functions to create photo posts with captions, retrieve all posts from a specific user, and retrieve a feed of posts from matched users",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "users can post there photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Authenticated users can create posts with photo blobs and optional captions",
+        "Users can retrieve their own posts chronologically",
+        "Users can view a feed of posts from profiles they have matched with",
+        "Posts include metadata like timestamp and owner information"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Build a messaging interface page where users can view their list of conversations with matched profiles and select one to open the chat view",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "how the users can talk to its ather"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Conversation list shows avatar, name, and last message preview for each matched user",
+        "Unread message indicators are visible",
+        "Clicking a conversation opens the chat view with that user",
+        "Empty state is shown when no conversations exist"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Create a chat view component that displays conversation history with a matched user and provides an input field to send new messages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "add the a messaging"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Messages are displayed in chronological order with visual distinction between sent and received messages",
+        "Message input field allows typing and sending text messages",
+        "Messages update in real-time when new messages are sent or received",
+        "Chat view shows the matched user's profile picture and name at the top"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Build a photo feed page displaying posts from matched users in a grid or list layout, showing the photo, caption, poster's name, and timestamp",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "users can post there photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Feed displays posts from all matched users in reverse chronological order",
+        "Each post shows the photo, caption, poster's profile picture, name, and timestamp",
+        "Loading states are shown while fetching posts",
+        "Empty state is shown when no posts are available"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Create a photo posting component with image upload functionality and caption input that allows users to create and publish new photo posts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "users can post there photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can select and preview an image from their device",
+        "Caption input field allows optional text with character limit",
+        "Image is converted to blob format before upload",
+        "Success and error notifications are shown after posting",
+        "Form resets after successful post creation"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Add navigation links in the Layout component header for accessing the messages page and photo feed page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Messages link is visible in the header navigation when authenticated",
+        "Feed link is visible in the header navigation when authenticated",
+        "Links highlight when their corresponding page is active",
+        "Mobile menu includes both new navigation items"
+      ]
+    }
+  ],
+  "constraints": [
+    "Messages can only be sent between users who have mutually matched (both users liked each other)",
+    "Photo posts must use the existing blob storage system in the backend",
+    "Maintain the single-actor architecture in backend/main.mo",
+    "Do not modify read-only frontend paths: useInternetIdentity.ts, useInternetIdentity.tsx, useActor.ts, main.tsx, or components/ui directory"
+  ],
+  "nonGoals": [
+    "Real-time message delivery using WebSockets",
+    "Message reactions or emoji support",
+    "Photo editing or filters",
+    "Video posts",
+    "Group messaging",
+    "Message search functionality",
+    "Push notifications for new messages"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
