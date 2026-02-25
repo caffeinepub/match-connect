@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup including new routes for messages (/messages, /messages/:partnerId) and feed (/feed), with profile setup modal logic.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including profile management, match decisions, messaging (conversation, send with optional image, mark as read), and photo posts; the `useSendMessage` mutation now accepts an optional `image` field (Base64 string or null) and passes it to the backend `sendMessage` call.",
+  "frontend/src/components/Layout.tsx": "Application layout wrapper with responsive header navigation including new Messages and Feed links, mobile menu, authentication controls, and footer with branding.",
+  "frontend/src/pages/LandingPage.tsx": "Landing page with hero section featuring background image, feature highlights, and call-to-action buttons that adapt based on authentication state.",
+  "frontend/src/pages/BrowsePage.tsx": "Browse page displaying one profile card at a time, filtering out current user and already matched profiles, with renamed variable to avoid conflict between user profile and displayed profile.",
+  "frontend/src/pages/MatchesPage.tsx": "Matches page showing grid of profiles the user has liked, with empty state encouraging users to start browsing.",
+  "frontend/src/pages/ProfilePage.tsx": "Profile management page allowing users to create or edit their profile information with authentication guard.",
+  "frontend/src/components/ProfileForm.tsx": "Reusable profile form component with fields for name, age, bio, and interests with tag management, now with proper type handling for age validation converting string to number before comparison.",
+  "frontend/src/components/ProfileCard.tsx": "Interactive profile card component with swipe-like animations, displaying profile information and like/pass action buttons with generated icons.",
+  "frontend/src/components/MatchCard.tsx": "Compact match card component for displaying matched user profiles in a grid layout with profile preview and interests.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that wraps ProfileForm for first-time profile setup, shown only when user is authenticated but has no profile.",
+  "frontend/src/index.css": "Global styles with OKLCH color system plus new keyframe animations for chat message entrance (fade + slide-up) and conversation item entrance (slide-in from left).",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color palette (rose, pink, coral), Inter font family, and custom design tokens.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient, InternetIdentity, ThemeProvider, and Toaster setup.",
+  "frontend/src/pages/MessagesPage.tsx": "Redesigned messages page with pastel gradient avatars, rounded-3xl conversation cards, hover animations, unread badge indicators, and a warm friendly empty state.",
+  "frontend/src/components/ChatView.tsx": "Chat component with WhatsApp-style image upload — adds a hidden file input triggered by an ImagePlus button, validates file size (≤1.5 MB), encodes the selected image as a Base64 Data URL, shows a removable thumbnail preview above the input bar, renders image messages inline inside chat bubbles, and opens a full-screen lightbox on image click; includes loading/disabled states during file reading and message sending.",
+  "frontend/src/pages/FeedPage.tsx": "Feed page displaying photo posts from matched users in reverse chronological order with post cards showing photo, caption, poster info, and create post dialog.",
+  "frontend/src/components/CreatePostForm.tsx": "Photo posting form component with image upload, preview, caption input (500 char limit), upload progress tracking, and success/error notifications.",
+  "frontend/src/utils/chatThemes.ts": "Defines the ChatTheme interface and four pre-made theme palettes (Pastel Dream, Night Sky, Sunset Glow, Mint Fresh) with sent/received bubble colors, backgrounds, text colors, and emoji accents.",
+  "frontend/src/hooks/useChatTheme.ts": "Custom hook managing chat theme state and localStorage persistence per user principal, providing preset selection, custom color overrides, font size control, and resolved color values.",
+  "frontend/src/components/ChatThemePanel.tsx": "Sheet-based theme customization panel with visual preset theme cards, custom color pickers for sent/received bubbles and background, and a font size toggle (small/medium/large)."
+}

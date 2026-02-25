@@ -1,0 +1,65 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-an-image-upload-button-camera-image-icon-to-the-chatview-message-input-area-clicking-it-opens-the-device-file-picker-filtered-to-image-files-the-selected-image-is-read-as-a-base64-data-url-size-checked-reject-files-over-1-5-mb-with-a-user-facing-error-and-sent-as-a-message",
+      "featureTitle": "Add an image upload button (camera/image icon) to the ChatView message input area. Clicking it opens the device file picker filtered to image files. The selected image is read as a Base64 Data URL, size-checked (reject files over 1.5 MB with a user-facing error), and sent as a message.",
+      "files": [
+        "frontend/src/components/ChatView.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-image-messages-inline-in-the-chatview-conversation-thread-when-a-message-contains-a-base64-image-render-it-as-a-rounded-thumbnail-max-width-240px-within-the-chat-bubble-tapping-clicking-the-image-should-open-a-full-size-lightbox-overlay",
+      "featureTitle": "Display image messages inline in the ChatView conversation thread. When a message contains a Base64 image, render it as a rounded thumbnail (max width ~240px) within the chat bubble. Tapping/clicking the image should open a full-size lightbox overlay.",
+      "files": [
+        "frontend/src/components/ChatView.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-show-a-loading-progress-indicator-in-the-chat-input-area-while-an-image-is-being-encoded-and-sent-and-disable-the-send-controls-during-that-period-to-prevent-duplicate-submissions",
+      "featureTitle": "Show a loading/progress indicator in the chat input area while an image is being encoded and sent, and disable the send controls during that period to prevent duplicate submissions.",
+      "files": [
+        "frontend/src/components/ChatView.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

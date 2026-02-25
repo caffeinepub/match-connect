@@ -1,0 +1,100 @@
+{
+  "kind": "build_request",
+  "title": "Add WhatsApp-style direct image upload to chat",
+  "projectName": "Match Connect",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Extend the backend message data model to support an optional image payload stored as Base64-encoded blob alongside the existing text content, so image messages can be persisted on-chain.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "focus on direct image upload only",
+          "Images will be encoded as Base64 and stored on-chain"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The sendMessage (or equivalent) backend function accepts an optional Base64 image field.",
+        "Messages with images are retrievable with their Base64 image data intact.",
+        "Text-only messages continue to work unchanged."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add an image upload button (camera/image icon) to the ChatView message input area. Clicking it opens the device file picker filtered to image files. The selected image is read as a Base64 Data URL, size-checked (reject files over 1.5 MB with a user-facing error), and sent as a message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Image upload button in the chat input area (WhatsApp-style)",
+          "Users can select an image from their device and send it directly in the chat"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A camera/image icon button appears in the chat input bar next to the send button.",
+        "Clicking the button opens a native file picker restricted to image types (image/*).",
+        "Files larger than 1.5 MB show an error message and are not sent.",
+        "A valid image is encoded to Base64 and dispatched as a message via the backend mutation."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Display image messages inline in the ChatView conversation thread. When a message contains a Base64 image, render it as a rounded thumbnail (max width ~240px) within the chat bubble. Tapping/clicking the image should open a full-size lightbox overlay.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Images will display inline in the chat conversation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Image messages render a thumbnail inside the chat bubble with rounded corners.",
+        "The thumbnail is constrained in width so it does not overflow the chat bubble.",
+        "Clicking the thumbnail opens a full-screen lightbox/modal showing the full-size image.",
+        "Text-only messages are unaffected in appearance."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Show a loading/progress indicator in the chat input area while an image is being encoded and sent, and disable the send controls during that period to prevent duplicate submissions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "WhatsApp-style direct media sharing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A spinner or progress indicator is visible while the image is being processed and sent.",
+        "The image upload button and send button are disabled during upload.",
+        "Controls re-enable once the send operation completes or fails."
+      ]
+    }
+  ],
+  "constraints": [
+    "Images must be Base64-encoded and stored on-chain; no external storage or URLs.",
+    "Maximum image file size is 1.5 MB to stay within on-chain storage limits.",
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Video upload is explicitly out of scope."
+  ],
+  "nonGoals": [
+    "Video upload or playback.",
+    "Location sharing in chat.",
+    "Video calling or any real-time streaming feature.",
+    "External image hosting or URL-based image sharing."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

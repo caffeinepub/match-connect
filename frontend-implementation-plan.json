@@ -1,0 +1,57 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add WhatsApp-style direct image upload to chat",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Add image upload button to chat input area with file picker, size validation, and Base64 encoding",
+      "acceptanceCriteria": [
+        "A camera/image icon button appears in the chat input bar next to the send button.",
+        "Clicking the button opens a native file picker restricted to image types (image/*).",
+        "Files larger than 1.5 MB show an error message and are not sent.",
+        "A valid image is encoded to Base64 and dispatched as a message via the backend mutation."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatView.tsx",
+          "operation": "modify",
+          "description": "Add an image upload button (camera/image icon) in the message input area next to the send button. Attach a hidden file input element with accept='image/*'. When the button is clicked, trigger the file picker. On file selection, read the file as a Data URL (Base64), validate that the file size is under 1.5 MB (reject and show error toast/message if larger), then call the sendMessage mutation with the text content and the Base64 image string (extracted from the Data URL). Use the existing sendMessageMutation from useQueries."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display image messages inline with thumbnail and lightbox functionality",
+      "acceptanceCriteria": [
+        "Image messages render a thumbnail inside the chat bubble with rounded corners.",
+        "The thumbnail is constrained in width so it does not overflow the chat bubble.",
+        "Clicking the thumbnail opens a full-screen lightbox/modal showing the full-size image.",
+        "Text-only messages are unaffected in appearance."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatView.tsx",
+          "operation": "modify",
+          "description": "Modify the message rendering logic to detect when a message contains an image field (Base64 string). If present, render an <img> element inside the chat bubble with the src set to the Base64 Data URL, constrained to max-width ~240px and with rounded corners (e.g., rounded-lg). Make the image clickable. On click, open a lightbox overlay (full-screen modal) displaying the full-size image with a close button. Text-only messages continue to render as before."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Show loading indicator and disable controls during image upload",
+      "acceptanceCriteria": [
+        "A spinner or progress indicator is visible while the image is being processed and sent.",
+        "The image upload button and send button are disabled during upload.",
+        "Controls re-enable once the send operation completes or fails."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatView.tsx",
+          "operation": "modify",
+          "description": "Track a local state flag (e.g., isUploadingImage) that is set to true when an image file is being read and encoded, and remains true while the sendMessageMutation is pending. Display a spinner or progress indicator in the input area when this flag is true. Disable both the image upload button and the send button while isUploadingImage is true or sendMessageMutation.isPending is true. Clear the flag and re-enable controls once the mutation completes (success or error)."
+        }
+      ]
+    }
+  ]
+}

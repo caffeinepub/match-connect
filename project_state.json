@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Messaging app with WhatsApp-style features including themed chat UI and direct image upload in chat (Base64 encoded, stored on-chain, displayed inline).",
+  "architectural_notes": [
+    "Images are Base64 encoded and stored on-chain; best suited for photos up to ~1-2MB per image."
+  ],
+  "known_issues": [
+    "Large video file uploads are not feasible on-chain due to storage constraints; only direct image upload is supported."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-add-an-image-upload-button-camera-image-icon-to-the-chatview-message-input-area-clicking-it-opens-the-device-file-picker-filtered-to-image-files-the-selected-image-is-read-as-a-base64-data-url-size-checked-reject-files-over-1-5-mb-with-a-user-facing-error-and-sent-as-a-message",
+      "title": "Add an image upload button (camera/image icon) to the ChatView message input area. Clicking it opens the device file picker filtered to image files. The selected image is read as a Base64 Data URL, size-checked (reject files over 1.5 MB with a user-facing error), and sent as a message.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-image-messages-inline-in-the-chatview-conversation-thread-when-a-message-contains-a-base64-image-render-it-as-a-rounded-thumbnail-max-width-240px-within-the-chat-bubble-tapping-clicking-the-image-should-open-a-full-size-lightbox-overlay",
+      "title": "Display image messages inline in the ChatView conversation thread. When a message contains a Base64 image, render it as a rounded thumbnail (max width ~240px) within the chat bubble. Tapping/clicking the image should open a full-size lightbox overlay.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-show-a-loading-progress-indicator-in-the-chat-input-area-while-an-image-is-being-encoded-and-sent-and-disable-the-send-controls-during-that-period-to-prevent-duplicate-submissions",
+      "title": "Show a loading/progress indicator in the chat input area while an image is being encoded and sent, and disable the send controls during that period to prevent duplicate submissions.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "WhatsApp-style direct image upload in chat with Base64 encoding, on-chain storage, and inline display",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Extend the backend message data model to support an optional image payload stored as Base64-encoded blob alongside the existing text content, so image messages can be persisted on-chain.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Match Connect",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
